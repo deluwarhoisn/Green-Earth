@@ -49,11 +49,11 @@
  <!-- banner section -->
   <section class=" bg-[#CFF0DC] flex ">
  <div class="pt-14"><img src="./assets/hero-leaf1.png" alt=""> </div>
- <div class="text-center pt-19">
-    <h1 class="font-bold text-[38px]">Plant a Tree, Grow a Future</h1>
+ <div class="text-center lg:pt-19">
+    <h1 class="font-bold lg:text-[38px]">Plant a Tree, Grow a Future</h1>
     <p class="text-[16px]">Join our mission to plant 1 million trees and make the Earth greener for future
 generations.</p>
- <div class="pt-5">
+ <div class="lg:pt-5">
   <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15] ">Get Involved</button>
  </div>
  </div>
@@ -62,42 +62,44 @@ generations.</p>
   </section>
   <!-- Choose Your Trees section  -->
 
-   <section class="bg-[#F0FDF4] h-[1600px]">
+   <section class="bg-[#F0FDF4] lg:h-[1600px]">
 
-    <section class="mt-[100px] mx-[135px] h-[793px]  overflow-auto">
+    <section class="lg:pt-[100px] lg:mx-[135px] lg:h-[793px]  lg:overflow-auto">
     <div>
-      <h1 class="text-center font-bold">Choose Your Trees</h1>
-      <div class="grid grid-cols-5">
+      <h1 class="text-center font-bold lg:text-[32px]">Choose Your Trees</h1>
+      <div class="lg:grid lg:grid-cols-5 ">
        <div class="col-span-1">
         <h1 class="h-[28px] font-bold text-[20px]">Categories</h1>
-        <div class="button section">
+        <div class="button section pt-1">
           <button>All Trees</button>
-          <button>Fruit Trees</button>
-          <button>Flowering Trees</button>
-          <button>Shade Trees</button>
-          <button>Medicinal Trees</button>
-          <button>Timber Trees</button>
-          <button>Evergreen Trees</button>
-          <button>Ornamental Plants</button>
-          <button>Bamboo</button>
-          <button>Climbers</button>
-          <button>Aquatic Plants</button>
+          <div><button>Fruit Trees</button></div>
+        <div><button>Flowering Trees</button></div>
+          <div><button>Shade Trees</button></div>
+         <div> <button>Medicinal Trees</button></div>
+          <div><button>Timber Trees</button></div>
+          <div><button>Evergreen Trees</button></div>
+         <div> <button>Ornamental Plants</button></div>
+          <div><button>Bamboo</button></div>
+         <div> <button>Climbers</button></div>
+          <div><button>Aquatic Plants</button></div>
         </div>
        </div>
-       <div class="col-span-3 gap-5 rounded-2xl p-2 grid grid-cols-3">
+       <div class="lg:col-span-3 gap-5 rounded-2xl p-2 lg:grid lg:grid-cols-3 grid grid-cols-1 ">
         <div class="p-2 w-full  bg-[#FFFFFF]">
-         <div class="h-auto">
-           <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+         <div class=" border-2 lg:h-[300px]">
+           <img class="lg:h-[185px] " src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
           <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
-          <div class="btoon flex justify-between space-y-2">
+          <div class="btoon md:flex sm:flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
           </div>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
          </div>
         </div>
-        <div class="p-2 w-auto bg-[#FFFFFF]">
+       <div class="h-[300px] border-2">
+
+          <div class="p-2  bg-[#FFFFFF]">
           <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
           <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
@@ -107,6 +109,7 @@ generations.</p>
           </div>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
         </div>
+       </div>
         <div class="p-2 w-auto bg-[#FFFFFF]">
           <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
@@ -137,7 +140,8 @@ generations.</p>
           </div>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
         </div>
-        <div class="p-2 w-full bg-[#FFFFFF]">
+        <div class="">
+           <div class="p-2 w-full  bg-[#FFFFFF]">
           <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
           <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
@@ -146,20 +150,22 @@ generations.</p>
             <p>৳500</p>
           </div>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
+        </div>
         </div>
        
        </div>
-       <div class="col-span-1 border-2 h-[793px]">
-hhh
+       <div class="lg:col-span-1 border-2 lg:h-[793px]">
+       <h1>Your Cart</h1>
        </div>
       </div>
     </div>
   </section>
+<!-- About the Campaign -->
 
-   <div class="w-[1090px] h-[610px] mt-[100px] mx-[228px]">
+   <div class="lg:w-[1000px] lg:h-[610px] lg:mt-10 lg:mx-[228px] border-2">
     <h1 class="text-center text-[32px] font-bold">About the Campaign</h1>
-    <div class="flex items-center">
-      <img class="w-[530px] h-[530px] mt-12 p-5" src="./assets/about.png" alt="">
+    <div class="lg:flex items-center">
+      <img class="lg:w-[530px] lg:h-[530px] lg:mt-12 lg:p-5" src="./assets/about.png" alt="">
       <div class="p-5 ">
          <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
            <li>Restoration of natural habitats</li>
@@ -174,49 +180,54 @@ hhh
 
    <!-- Our Impact section -->
 
-   <section class="bg-[#CFF0DC] h-[436px]">
+   <section class="bg-[#CFF0DC] lg:h-[436px]">
     <div class="">
-      <h1 class="text-center font-bold text-[32px] pt-10">Our Impact</h1>
-     <div class="grid grid-cols-3 gap-5 pt-27">
-       <div class=" h-[156px] bg-white rounded-sm pt-10 items-center text-center shadow-2xl">
-        <h2 class="text-[#15803D] text-[32px] font-semibold">500K+</h2>
-        <p>Trees Planted</p>
+      <h1 class="text-center font-bold lg:text-[32px] lg:pt-8">Our Impact</h1>
+     <div class="lg:grid lg:grid-cols-3 grid-cols-1 lg:gap-5 lg:pt-15 lg:mx-15">
+       <div class=" lg:h-[156px] w-[300px] lg:w-[400px]  bg-white rounded-md lg:pt-10 items-center text-center shadow-2xl">
+        <h2 class="text-[#15803D] lg:text-[32px] font-semibold">500K+</h2>
+        <p class="p-1">Trees Planted</p>
       </div>
-      <div class=" h-[156px] bg-white rounded-sm pt-10 items-center text-center shadow-2xl">
-        <h2 class="text-[#15803D] text-[32px] font-semibold">120+</h2>
-        <p>Communities Involved</p>
+      <div class=" lg:h-[156px] w-[300px] lg:w-[400px] bg-white rounded-sm lg:pt-10 items-center text-center shadow-2xl">
+        <h2 class="text-[#15803D] lg:text-[32px] font-semibold">120+</h2>
+        <p class="pt-1">Communities Involved</p>
       </div>
-      <div class=" h-[156px] bg-white rounded-sm pt-10 items-center text-center shadow-2xl">
-        <h2 class="text-[#15803D] text-[32px] font-semibold">30+</h2>
-        <p>Countries Reached</p>
+      <div class=" lg:h-[156px] w-[300px] lg:w-[400px] bg-white rounded-sm lg:pt-10 items-center text-center shadow-2xl">
+        <h2 class="text-[#15803D] lg:text-[32px] font-semibold">30+</h2>
+        <p class="pt-1">Countries Reached</p>
       </div>
      </div>
     </div>
    </section>
 
    <!-- Plant a Tree Today section  -->
-  <section class="bg-[#166534] h-[590px]">
+  <section class="bg-[#166534] lg:h-[590px]">
 
-<div class="pt-30 px-100 ">
-  <h1 class="text-center text-white text-[32px] font-bold mb-5">Plant a Tree Today</h1>
-  <div class=" space-y-4 bg-[#15803D] w-[650px] h-[311px] p-9 rounded-2xl">
+<div class="lg:pt-30 lg:px-100 ">
+  <h1 class="text-center text-white text-[32px] font-bold lg:mb-5">Plant a Tree Today</h1>
+  <div class=" space-y-4 bg-[#15803D] lg:w-[650px] lg:h-[311px] p-9 rounded-2xl">
     <form class="">
-  <input class="w-[570px] h-[48px] bg-white rounded-sm p-3" placeholder="your name" type="text"> <br> <br>
-  <input class="w-[570px] h-[48px] bg-white rounded-sm p-3" placeholder="Your Email Address" type="email" name="" id=""> <br> <br>
+  <input class="lg:w-[570px] lg:h-[48px] bg-white rounded-sm p-3" placeholder="Your name" type="text"> <br> <br>
+  <input class="lg:w-[570px] h-[48px] bg-white rounded-sm p-3" placeholder="Your Email Address" type="email" name="" id=""> <br> <br>
 
-  <select class="select w-[570px] h-[48px]">
+  <select class="select lg:w-[570px] lg:h-[48px]">
   <option disabled selected>Number of Trees</option>
   <option>1 Tree-$5</option>
   <option>5 Tree-$25</option>
   <option>10 Tree-$50</option>
 </select>
  </form>
- <button class="w-[570px] h-[42px] rounded-[10px] bg-amber-400 text-[#15803D]">Donate Now</button>
+ <button class="lg:w-[570px] h-[42px] rounded-[10px] bg-amber-400 text-[#15803D]">Donate Now</button>
   </div>
 </div>
 
 
   </section>
+
+  <!-- All Rights Reserved section  -->
+   <section class="h-[72px] bg-[#14532D] text-center lg:pt-5 text-white">
+  <p>© 2025 Green Earth. All Rights Reserved.</p>
+   </section>
 
 
 

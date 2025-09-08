@@ -6,8 +6,17 @@
     <title>Green Earth</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font  -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+.font{
+  font-family: "Inter", sans-serif;
+}
+</style>
 </head>
-<body>
+<body class="font">
     <!-- nav-section -->
  <section class="navbar bg-[#15803D]">
 
@@ -28,7 +37,7 @@
         <li><a>Plant a Tree</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl text-white ">Green Earth</a>
+    <a class="btn btn-ghost text-xl text-white ">🌴Green Earth</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-white">
@@ -40,7 +49,7 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn rounded-3xl text-[#15803D] bg-[#FACC15]">Plant a Tree</a>
+    <a class="btn rounded-3xl text-[#15803D] bg-[#FACC15]"> Plant a Tree</a>
   </div>
 </div>
 
@@ -51,8 +60,7 @@
  <div class="pt-14"><img src="./assets/hero-leaf1.png" alt=""> </div>
  <div class="text-center lg:pt-19">
     <h1 class="font-bold lg:text-[38px]">Plant a Tree, Grow a Future</h1>
-    <p class="text-[16px]">Join our mission to plant 1 million trees and make the Earth greener for future
-generations.</p>
+    <p class="text-[16px]">Plant a tree today, gift the next generation a beautiful future.</p>
  <div class="lg:pt-5">
   <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15] ">Get Involved</button>
  </div>
@@ -64,14 +72,14 @@ generations.</p>
 
    <section class="bg-[#F0FDF4] lg:h-[1600px]">
 
-    <section class="lg:pt-[100px] lg:mx-[135px] lg:h-[793px]  lg:overflow-auto">
+    <section class="lg:pt-[100px] lg:mx-[135px] lg:h-[793px]  lg:overflow-y-auto">
     <div>
       <h1 class="text-center font-bold lg:text-[32px]">Choose Your Trees</h1>
       <div class="lg:grid lg:grid-cols-5 ">
        <div class="col-span-1">
         <h1 class="h-[28px] font-bold text-[20px]">Categories</h1>
-        <div class="button section pt-1">
-          <button>All Trees</button>
+        <div class="button section pt-1 flex flex-col gap-3">
+          <div class="pt-5"><button>All Trees</button></div>
           <div><button>Fruit Trees</button></div>
         <div><button>Flowering Trees</button></div>
           <div><button>Shade Trees</button></div>
@@ -87,9 +95,9 @@ generations.</p>
        <div class="lg:col-span-3 gap-5 rounded-2xl p-2 lg:grid lg:grid-cols-3 grid grid-cols-1 ">
         <div class="p-2 w-full  bg-[#FFFFFF]">
          <div class=" border-2 lg:h-[300px]">
-           <img class="lg:h-[185px] " src="./assets/hero-leaf1.png" alt="">
+           <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">An evergreen tree, which provides shade year after year and keeps the environment cool.</p>
           <div class="btoon md:flex sm:flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -100,9 +108,9 @@ generations.</p>
        <div class="h-[300px] border-2">
 
           <div class="p-2  bg-[#FFFFFF]">
-          <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+          <img class="h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">A source of cool shade and pure oxygen, the evergreen tree in the village courtyard.</p>
           <div class="btoon flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -111,9 +119,9 @@ generations.</p>
         </div>
        </div>
         <div class="p-2 w-auto bg-[#FFFFFF]">
-          <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+          <img class="h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">During the rainy season, the surrounding area is filled with flowers, adding to the beauty of nature.</p>
           <div class="btoon flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -121,9 +129,9 @@ generations.</p>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
         </div>
         <div class="p-2 w-auto bg-[#FFFFFF]">
-          <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+          <img class="h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">A fast-growing tree that fertilizes the soil and protects biodiversity.</p>
           <div class="btoon flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -131,9 +139,9 @@ generations.</p>
           <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
         </div>
         <div class="p-2 w-full bg-[#FFFFFF]">
-          <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+          <img class="h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">The cool shade provides comfort in the intense summer sun, a unique companion of rural life.</p>
           <div class="btoon flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -142,9 +150,9 @@ generations.</p>
         </div>
         <div class="">
            <div class="p-2 w-full  bg-[#FFFFFF]">
-          <img class="h-[185px]" src="./assets/hero-leaf1.png" alt="">
+          <img class="h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
           <h1 class="font-semibold text-2xl">Mango Tree</h1>
-          <p class="text-gray-500">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
+          <p class="text-gray-500">A valuable tree that purifies the air and maintains the balance of the environment.</p>
           <div class="btoon flex justify-between space-y-2">
             <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
             <p>৳500</p>
@@ -154,7 +162,7 @@ generations.</p>
         </div>
        
        </div>
-       <div class="lg:col-span-1 border-2 lg:h-[793px]">
+       <div class="lg:col-span-1 border-2 lg:h-[793px] bg-white">
        <h1>Your Cart</h1>
        </div>
       </div>
@@ -162,15 +170,15 @@ generations.</p>
   </section>
 <!-- About the Campaign -->
 
-   <div class="lg:w-[1000px] lg:h-[610px] lg:mt-10 lg:mx-[228px] border-2">
+   <div class="lg:w-[1000px] lg:h-[610px] lg:mt-10 lg:mx-[298px]">
     <h1 class="text-center text-[32px] font-bold">About the Campaign</h1>
     <div class="lg:flex items-center">
       <img class="lg:w-[530px] lg:h-[530px] lg:mt-12 lg:p-5" src="./assets/about.png" alt="">
       <div class="p-5 ">
-         <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
-           <li>Restoration of natural habitats</li>
-           <li>Improvement of air quality</li>
-           <li>Support for local communities</li>
+         <p>By joining our initiative, you can contribute to forest restoration, wildlife protection, and environmental protection.</p>
+           <li>We protect biodiversity by restoring natural habitats.</li>
+           <li>We ensure a healthy life by reducing pollution.</li>
+           <li>We support rural development and livelihood enhancement.</li>
       </div>
      
     

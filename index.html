@@ -309,7 +309,7 @@
         `;
         productsGrid.appendChild(card);
       });
-      // attach add-to-cart handlers
+    
       Array.from(document.querySelectorAll('.add-to-cart')).forEach(btn => {
         btn.addEventListener('click', (e) => {
           const id = e.currentTarget.dataset.id;
@@ -331,9 +331,6 @@
       showToast(`${product.title} added to cart`);
     }
 
-    /***********************
-     * Cart UI
-     ***********************/
     function renderCartPreview() {
       const preview = document.getElementById('cart-preview');
       preview.innerHTML = '';

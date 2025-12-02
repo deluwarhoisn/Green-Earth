@@ -232,9 +232,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    /***********************
-     * Demo dataset (could be fetched from API)
-     ***********************/
+   
     const PRODUCTS = [
       { id: 'mango-1', title: 'Mango Tree', price: 500, priceUSD: 5, category: 'Fruit', desc: 'Sweet mango tree — shade and fruit.', img: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800&q=60&auto=format&fit=crop', available: true },
       { id: 'jack-1', title: 'Jackfruit Tree', price: 700, priceUSD: 7, category: 'Fruit', desc: 'Large, nourishing fruit.', img: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&q=60&auto=format&fit=crop', available: true },
@@ -244,9 +242,7 @@
       { id: 'neem-1', title: 'Neem Tree', price: 400, priceUSD: 4, category: 'Medicinal', desc: 'Medicinal and hardy.', img: 'https://images.unsplash.com/photo-1524594154901-2c1da8ae3b8c?w=900&q=60&auto=format&fit=crop', available: true }
     ];
 
-    /***********************
-     * Simple state + localStorage helpers
-     ***********************/
+   
     const CART_KEY = 'green-earth-cart-v1';
     let cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
 
@@ -267,9 +263,7 @@
       if (openCartBtn) openCartBtn.setAttribute('aria-label', `Open cart with ${getCartItemCount()} items`);
     }
 
-    /***********************
-     * Render product cards
-     ***********************/
+ 
     const productsGrid = document.getElementById('products-grid');
 
     function formatPriceUSD(n) {
@@ -391,7 +385,7 @@
           list.appendChild(itemEl);
         });
 
-        // attach handlers
+       
         Array.from(document.querySelectorAll('.increase')).forEach(b => {
           b.addEventListener('click', (e) => {
             const id = e.currentTarget.dataset.id;
@@ -436,9 +430,7 @@
       showToast('Cart cleared');
     }
 
-    /***********************
-     * Filters / search
-     ***********************/
+  
     const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
     let activeCategory = 'all';
 
@@ -466,9 +458,7 @@
       renderProducts(results);
     }
 
-    /***********************
-     * Small utilities
-     ***********************/
+    
     function showToast(msg) {
       // very small transient message
       const t = document.createElement('div');
@@ -479,9 +469,6 @@
       setTimeout(() => t.remove(), 2600);
     }
 
-    /***********************
-     * Donation form (demo)
-     ***********************/
     document.getElementById('donate-form').addEventListener('submit', (ev) => {
       ev.preventDefault();
       const name = document.getElementById('donor-name').value.trim();
@@ -496,9 +483,7 @@
       document.getElementById('donor-email').value = '';
     });
 
-    /***********************
-     * Initialize on load
-     ***********************/
+   
     function init() {
       renderProducts(PRODUCTS);
       renderCartPreview();

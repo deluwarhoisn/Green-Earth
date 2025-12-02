@@ -1,266 +1,561 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Earth</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <!-- font  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Green Earth — Plant a Tree</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: simple default font from Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    .font {
-      font-family: "Inter", sans-serif;
+    :root {
+      --brand-green: #15803D;
+      --brand-yellow: #FACC15;
+      --muted: #6B7280;
     }
+    html,body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* small visual helpers */
+    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+    .card-img { background: linear-gradient(180deg, #f3f7f4 0%, #e8f4ea 100%); display:flex; align-items:center; justify-content:center; }
+    /* badge pill */
+    .pill { display:inline-block; padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; font-size:0.78rem; }
   </style>
 </head>
+<body class="bg-[#F0FDF4] text-slate-800">
 
-<body class="font">
-  <!-- nav-section -->
-  <section class="navbar bg-[#15803D]">
-
-    <div class="navbar ">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-            </svg>
-          </div>
-          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>About</a></li>
-            <li>
-              <a>Parent</a>
-
-            </li>
-            <li><a>Plant a Tree</a></li>
-          </ul>
+  <!-- NAVBAR -->
+  <header class="bg-[var(--brand-green)] text-white">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a class="flex items-center gap-3" href="#">
+        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">🌴</div>
+        <div>
+          <div class="font-bold text-lg">Green Earth</div>
+          <div class="text-xs text-white/80 -mt-0.5">Plant a tree. Grow a future.</div>
         </div>
-        <a class="btn btn-ghost text-xl text-white ">🌴Green Earth</a>
+      </a>
+
+      <nav class="hidden md:flex gap-6 items-center">
+        <a class="hover:underline" href="#about">About</a>
+        <a class="hover:underline" href="#gallery">Gallery</a>
+        <a class="hover:underline" href="#campaign">Campaign</a>
+        <a class="hover:underline" href="#donate">Donate</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="open-cart" aria-controls="cart-drawer" aria-expanded="false"
+                class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold bg-white text-[var(--brand-green)] shadow-sm">
+          🛒 <span id="cart-count">0</span>
+        </button>
+
+        <button id="cta-plant" class="px-4 py-2 rounded-full font-bold bg-[var(--brand-yellow)] text-[var(--brand-green)]">
+          Plant a Tree
+        </button>
+
+        <!-- mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md bg-white/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 text-white">
-          <li><a>About</a></li>
-          <li>
-            <a href="">Gallery </a>
-          </li>
-          <li><a>Plant a Tree </a></li>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-[rgba(0,0,0,0.04)]">
+      <div class="px-4 py-3 space-y-2">
+        <a class="block" href="#about">About</a>
+        <a class="block" href="#gallery">Gallery</a>
+        <a class="block" href="#campaign">Campaign</a>
+        <a class="block" href="#donate">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="container mx-auto px-4 py-12 flex flex-col-reverse lg:flex-row items-center gap-8">
+    <div class="lg:w-1/2 text-center lg:text-left">
+      <h1 class="text-3xl lg:text-4xl font-extrabold text-[var(--brand-green)]">Plant a Tree, Grow a Future</h1>
+      <p class="mt-4 text-slate-700 max-w-xl">Join our mission to restore forests, protect wildlife and empower rural communities. Choose a tree, donate, and follow its journey.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 items-center justify-center lg:justify-start">
+        <button id="get-involved" class="px-6 py-3 rounded-full font-semibold bg-[var(--brand-yellow)] text-[var(--brand-green)]">Get Involved</button>
+        <button id="scroll-products" class="px-6 py-3 rounded-full font-semibold border border-[var(--brand-green)] text-[var(--brand-green)] bg-white/90">Choose Trees</button>
+      </div>
+    </div>
+
+    <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+      <div class="card-img rounded-xl p-6 shadow">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&q=60&auto=format&fit=crop" alt="leaf" class="w-full h-48 object-cover rounded-md">
+      </div>
+      <div class="card-img rounded-xl p-6 shadow hidden sm:block">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&q=60&auto=format&fit=crop&sat=-30" alt="leaf2" class="w-full h-48 object-cover rounded-md">
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN: Products + Sidebar -->
+  <main class="container mx-auto px-4" id="gallery">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+      <!-- CATEGORIES -->
+      <aside class="lg:col-span-1 bg-white rounded-xl p-4 shadow sticky top-6 h-fit">
+        <h3 class="font-bold text-lg">Categories</h3>
+        <div class="mt-3 grid gap-2">
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100 active:bg-slate-200" data-cat="all">All Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Fruit">Fruit Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Flowering">Flowering Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Shade">Shade Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Medicinal">Medicinal Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Bamboo">Bamboo</button>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-semibold">Filter</h4>
+          <label class="flex items-center gap-2 mt-2 text-sm">
+            <input id="only-available" type="checkbox" class="w-4 h-4" />
+            Only show available
+          </label>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="font-semibold">Your Cart</h4>
+          <div id="cart-preview" class="mt-2 space-y-2 text-sm">
+            <p class="text-slate-500">No items yet</p>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <button id="checkout-btn" class="flex-1 px-3 py-2 rounded-md bg-[var(--brand-green)] text-white font-semibold">Checkout</button>
+            <button id="clear-cart" class="px-3 py-2 rounded-md border">Clear</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS -->
+      <section class="lg:col-span-3">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-2xl font-bold">Choose Your Trees</h2>
+          <div class="flex items-center gap-2">
+            <label class="text-sm text-slate-600">Search</label>
+            <input id="search" type="search" placeholder="Search trees..." class="px-3 py-2 rounded-md border w-60" />
+          </div>
+        </div>
+
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- JS generated cards -->
+        </div>
+      </section>
+
+      <!-- IMPACT / DONATE -->
+      <aside class="lg:col-span-1 bg-white rounded-xl p-6 shadow h-fit">
+        <h3 class="font-bold text-lg">Our Impact</h3>
+        <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+          <div>
+            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">500K+</div>
+            <div class="text-xs text-slate-600">Trees Planted</div>
+          </div>
+          <div>
+            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">120+</div>
+            <div class="text-xs text-slate-600">Communities</div>
+          </div>
+          <div>
+            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">30+</div>
+            <div class="text-xs text-slate-600">Countries</div>
+          </div>
+        </div>
+
+        <div id="donate" class="mt-6 bg-[var(--brand-green)] text-white rounded-lg p-4">
+          <h4 class="font-semibold">Plant a Tree Today</h4>
+          <p class="text-sm mt-2">Donate to plant a tree and support local communities.</p>
+          <form id="donate-form" class="mt-3 space-y-3">
+            <input id="donor-name" class="w-full px-3 py-2 rounded-md text-slate-800" placeholder="Your name" />
+            <input id="donor-email" class="w-full px-3 py-2 rounded-md text-slate-800" placeholder="Email" />
+            <select id="donation-qty" class="w-full px-3 py-2 rounded-md text-slate-800">
+              <option value="1">1 Tree — $5</option>
+              <option value="5">5 Trees — $25</option>
+              <option value="10">10 Trees — $50</option>
+            </select>
+            <button class="w-full px-3 py-2 rounded-md bg-[var(--brand-yellow)] text-[var(--brand-green)] font-semibold">Donate Now</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ABOUT / CAMPAIGN -->
+  <section id="campaign" class="container mx-auto px-4 py-12">
+    <div class="bg-white rounded-xl p-6 shadow grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=60&auto=format&fit=crop" alt="about" class="w-full h-72 object-cover rounded-md" />
+      <div>
+        <h3 class="text-2xl font-bold" id="about">About the Campaign</h3>
+        <p class="mt-3 text-slate-700">By joining our initiative, you contribute to forest restoration, wildlife protection, and community development in rural areas. We protect biodiversity, reduce pollution, and support livelihoods.</p>
+        <ul class="mt-3 list-disc pl-5 text-slate-600">
+          <li>Restore natural habitats and biodiversity</li>
+          <li>Reduce air pollution and improve health</li>
+          <li>Support rural livelihoods</li>
         </ul>
       </div>
-      <div class="navbar-end">
-        <a class="btn rounded-3xl text-[#15803D] bg-[#FACC15]"> Plant a Tree</a>
-      </div>
     </div>
-
   </section>
 
-  <!-- banner section -->
-  <section class=" bg-[#CFF0DC] flex ">
-    <div class="pt-14"><img src="./assets/hero-leaf1.png" alt=""> </div>
-    <div class="text-center lg:pt-19">
-      <h1 class="font-bold lg:text-[38px]">Plant a Tree, Grow a Future</h1>
-      <p class="text-[16px]">Plant a tree today, gift the next generation a beautiful future.</p>
-      <div class="lg:pt-5">
-        <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15] ">Get Involved</button>
+  <!-- FOOTER -->
+  <footer class="bg-[var(--brand-green)] text-white py-6 mt-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>© 2025 Green Earth. All Rights Reserved.</div>
+      <div class="text-sm text-white/80">Built with care 🌱</div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER (hidden on small screens but we show as modal for demo) -->
+  <div id="cart-modal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-xl">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h4 class="font-bold">Your Cart</h4>
+        <button id="close-cart" class="px-2 py-1 rounded-md bg-slate-100">Close</button>
+      </div>
+      <div class="p-4 space-y-3">
+        <div id="cart-items-list" class="space-y-3"></div>
+        <div class="flex items-center justify-between border-t pt-3">
+          <div class="text-lg font-semibold">Total</div>
+          <div id="cart-total" class="text-lg font-bold text-[var(--brand-green)]">$0.00</div>
+        </div>
+        <div class="flex gap-2">
+          <button id="modal-checkout" class="flex-1 px-4 py-2 rounded-md bg-[var(--brand-green)] text-white">Checkout</button>
+          <button id="modal-clear" class="px-4 py-2 rounded-md border">Clear</button>
+        </div>
       </div>
     </div>
-    <div class="pt-14"><img src="./assets/hero-leaf2.png" alt=""></div>
+  </div>
 
-  </section>
-  <!-- Choose Your Trees section  -->
+  <!-- SCRIPTS -->
+  <script>
+    /***********************
+     * Demo dataset (could be fetched from API)
+     ***********************/
+    const PRODUCTS = [
+      { id: 'mango-1', title: 'Mango Tree', price: 500, priceUSD: 5, category: 'Fruit', desc: 'Sweet mango tree — shade and fruit.', img: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800&q=60&auto=format&fit=crop', available: true },
+      { id: 'jack-1', title: 'Jackfruit Tree', price: 700, priceUSD: 7, category: 'Fruit', desc: 'Large, nourishing fruit.', img: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&q=60&auto=format&fit=crop', available: true },
+      { id: 'teak-1', title: 'Teak', price: 1500, priceUSD: 15, category: 'Timber', desc: 'Valuable timber tree.', img: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=60&auto=format&fit=crop', available: false },
+      { id: 'frang-1', title: 'Frangipani', price: 300, priceUSD: 3, category: 'Flowering', desc: 'Fragrant flowering tree.', img: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=700&q=60&auto=format&fit=crop&sat=-10', available: true },
+      { id: 'bamboo-1', title: 'Bamboo Clump', price: 200, priceUSD: 2, category: 'Bamboo', desc: 'Fast-growing bamboo.', img: 'https://images.unsplash.com/photo-1509221965574-3d0a9c40c0b5?w=900&q=60&auto=format&fit=crop', available: true },
+      { id: 'neem-1', title: 'Neem Tree', price: 400, priceUSD: 4, category: 'Medicinal', desc: 'Medicinal and hardy.', img: 'https://images.unsplash.com/photo-1524594154901-2c1da8ae3b8c?w=900&q=60&auto=format&fit=crop', available: true }
+    ];
 
-  <section class="bg-[#F0FDF4] lg:h-[1600px]">
+    /***********************
+     * Simple state + localStorage helpers
+     ***********************/
+    const CART_KEY = 'green-earth-cart-v1';
+    let cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
 
-    <section class="lg:pt-[100px] lg:mx-[135px] lg:h-[793px] ">
-      <div>
-        <h1 class="text-center font-bold lg:text-[32px]">Choose Your Trees</h1>
-        <div class="lg:grid lg:grid-cols-5 ">
-          <div class="col-span-1">
-            <h1 class="h-[28px] font-bold text-[20px]">Categories</h1>
-            <div class="button section pt-1 flex flex-col gap-3">
-              <div class="pt-5"><button>All Trees</button></div>
-              <div><button>Fruit Trees</button></div>
-              <div><button>Flowering Trees</button></div>
-              <div><button>Shade Trees</button></div>
-              <div> <button>Medicinal Trees</button></div>
-              <div><button>Timber Trees</button></div>
-              <div><button>Evergreen Trees</button></div>
-              <div> <button>Ornamental Plants</button></div>
-              <div><button>Bamboo</button></div>
-              <div> <button>Climbers</button></div>
-              <div><button>Aquatic Plants</button></div>
+    function saveCart() {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCartPreview();
+      updateCartCount();
+    }
 
+    function getCartItemCount() {
+      return Object.values(cart).reduce((s, i) => s + i.qty, 0);
+    }
 
-            </div>
+    function updateCartCount() {
+      const el = document.getElementById('cart-count');
+      if (el) el.textContent = getCartItemCount();
+      const openCartBtn = document.getElementById('open-cart');
+      if (openCartBtn) openCartBtn.setAttribute('aria-label', `Open cart with ${getCartItemCount()} items`);
+    }
 
+    /***********************
+     * Render product cards
+     ***********************/
+    const productsGrid = document.getElementById('products-grid');
 
-            <div id="output" class="mt-5"></div>
+    function formatPriceUSD(n) {
+      return '$' + (n).toFixed(2);
+    }
+
+    function renderProducts(items) {
+      productsGrid.innerHTML = '';
+      if (!items.length) {
+        productsGrid.innerHTML = '<div class="p-6 bg-white rounded-md shadow text-center">No products found</div>';
+        return;
+      }
+      items.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-xl shadow p-4 flex flex-col';
+        card.innerHTML = `
+          <div class="rounded-md overflow-hidden card-img h-44 mb-3"><img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover"></div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-lg">${p.title}</h4>
+            <p class="text-sm text-slate-600 mt-2">${p.desc}</p>
           </div>
-          <div class="lg:col-span-3 gap-5 rounded-2xl p-2 ">
-            <div class="medil lg:grid lg:grid-cols-3 grid grid-cols-1 overflow-auto">
-              <div class="p-2 w-auto lg:h-[400px] bg-[#FFFFFF]">
-                <div class=" lg:">
-                  <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                  <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                  <p class="text-gray-500">An evergreen tree, which provides shade year after year and keeps the
-                    environment cool.</p>
-                  <div class="btoon md:flex sm:flex justify-between  space-y-2">
-                    <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                    <p>৳500</p>
-                  </div>
-                  <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
-                </div>
-              </div>
-
-              <div class="">
-
-                <div class="p-2 lg:w-[240px] lg:h-[400px] bg-[#FFFFFF]">
-                  <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                  <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                  <p class="text-gray-500">A source of cool shade and pure oxygen, the evergreen tree in the village
-                    courtyard.</p>
-                  <div class="btoon flex justify-between space-y-2">
-                    <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                    <p>৳500</p>
-                  </div>
-                  <button class="w-full h-[43px]  bg-[#15803D] rounded-3xl">Add to Cart</button>
-                </div>
-              </div>
-              <div class="p-2 w-auto bg-[#FFFFFF]">
-                <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                <p class="text-gray-500">During the rainy season, the surrounding area is filled with flowers, adding to
-                  the beauty of nature.</p>
-                <div class="btoon flex justify-between space-y-2">
-                  <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                  <p>৳500</p>
-                </div>
-                <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
-              </div>
-              <div class="p-2 w-auto bg-[#FFFFFF]">
-                <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                <p class="text-gray-500">A fast-growing tree that fertilizes the soil and protects biodiversity.</p>
-                <div class="btoon flex justify-between space-y-2">
-                  <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                  <p>৳500</p>
-                </div>
-                <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
-              </div>
-              <div class="p-2 w-full bg-[#FFFFFF]">
-                <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                <p class="text-gray-500">The cool shade provides comfort in the intense summer sun, a unique companion
-                  of
-                  rural life.</p>
-                <div class="btoon flex justify-between space-y-2">
-                  <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                  <p>৳500</p>
-                </div>
-                <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
-              </div>
-              <div class="">
-                <div class="p-2 w-full  bg-[#FFFFFF]">
-                  <img class="lg:h-[185px] bg-[#EDEDED] rounded-sm" src="./assets/hero-leaf1.png" alt="">
-                  <h1 class="font-semibold lg:text-2xl">Mango Tree</h1>
-                  <p class="text-gray-500">A valuable tree that purifies the air and maintains the balance of the
-                    environment.</p>
-                  <div class="btoon flex justify-between space-y-2">
-                    <button class="w-[86px] h-[28px] bg-[#DCFCE7] rounded-2xl text-[#15803D]">Fruit Tree</button>
-                    <p>৳500</p>
-                  </div>
-                  <button class="w-full h-[43px] bg-[#15803D] rounded-3xl">Add to Cart</button>
-                </div>
-              </div>
-
+          <div class="mt-3 flex items-center justify-between gap-2">
+            <div>
+              <span class="pill text-[var(--brand-green)] bg-[#DCFCE7]">${p.category}</span>
+            </div>
+            <div class="text-right">
+              <div class="font-bold">${p.price}৳</div>
+              <div class="text-xs text-slate-500">${formatPriceUSD(p.priceUSD)}</div>
             </div>
           </div>
-          <div class="lg:col-span-1 lg:h-[793px] bg-white">
-            <h1>Your Cart</h1>
+          <div class="mt-3 flex gap-2">
+            <button ${p.available ? '' : 'disabled'} class="add-to-cart flex-1 px-3 py-2 rounded-md font-semibold ${p.available ? 'bg-[var(--brand-green)] text-white' : 'bg-slate-200 text-slate-400'}" data-id="${p.id}">
+              ${p.available ? 'Add to Cart' : 'Sold out'}
+            </button>
+            <button class="px-3 py-2 rounded-md border" data-id="${p.id}" aria-label="More info">Info</button>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- About the Campaign -->
+        `;
+        productsGrid.appendChild(card);
+      });
+      // attach add-to-cart handlers
+      Array.from(document.querySelectorAll('.add-to-cart')).forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = e.currentTarget.dataset.id;
+          addToCart(id);
+        });
+      });
+    }
 
-    <div class="lg:w-[1000px] lg:h-[610px] lg:mt-10 lg:mx-[298px]">
-      <h1 class="text-center lg:text-[32px] pt-35 font-bold">About the Campaign</h1>
-      <div class="lg:flex items-center pt-">
-        <img class="lg:w-[530px] lg:h-[530px] lg:mt-12 lg:p-5" src="./assets/about.png" alt="">
-        <div class="p-5 ">
-          <p>By joining our initiative, you can contribute to forest restoration, wildlife protection, and environmental
-            protection.</p>
-          <li>We protect biodiversity by restoring natural habitats.</li>
-          <li>We ensure a healthy life by reducing pollution.</li>
-          <li>We support rural development and livelihood enhancement.</li>
-        </div>
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+      if (!product.available) {
+        alert('This product is currently unavailable.');
+        return;
+      }
+      if (!cart[productId]) cart[productId] = { ...product, qty: 0 };
+      cart[productId].qty += 1;
+      saveCart();
+      showToast(`${product.title} added to cart`);
+    }
 
+    /***********************
+     * Cart UI
+     ***********************/
+    function renderCartPreview() {
+      const preview = document.getElementById('cart-preview');
+      preview.innerHTML = '';
+      const ids = Object.keys(cart);
+      if (!ids.length) {
+        preview.innerHTML = '<p class="text-slate-500">No items yet</p>';
+        return;
+      }
+      ids.slice(0,3).forEach(id => {
+        const it = cart[id];
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between gap-2';
+        row.innerHTML = `<div class="text-sm">${it.title} x${it.qty}</div><div class="text-sm font-semibold">${(it.priceUSD * it.qty).toFixed(2)}$</div>`;
+        preview.appendChild(row);
+      });
+      if (ids.length > 3) {
+        const more = document.createElement('div');
+        more.className = 'text-xs text-slate-500';
+        more.textContent = `+ ${ids.length - 3} more`;
+        preview.appendChild(more);
+      }
+    }
 
-      </div>
-    </div>
-  </section>
+    function openCartModal() {
+      document.getElementById('cart-modal').classList.remove('hidden');
+      document.getElementById('open-cart').setAttribute('aria-expanded', 'true');
+      populateCartModal();
+    }
 
-  <!-- Our Impact section -->
+    function closeCartModal() {
+      document.getElementById('cart-modal').classList.add('hidden');
+      document.getElementById('open-cart').setAttribute('aria-expanded', 'false');
+    }
 
-  <section class="bg-[#CFF0DC]  lg:h-[436px]">
-    <div class="">
-      <h1 class="text-center font-bold lg:text-[32px] lg:pt-8">Our Impact</h1>
-      <div class="lg:grid lg:grid-cols-3 grid-cols-1 lg:gap-5 lg:pt-15 lg:mx-15">
-        <div class=" lg:h-[156px] lg:w-[400px]  bg-white rounded-md lg:pt-10 items-center text-center shadow-2xl">
-          <h2 class="text-[#15803D] lg:text-[32px] font-semibold">500K+</h2>
-          <p class="p-1">Trees Planted</p>
-        </div>
-        <div class="lg:h-[156px] lg:w-[400px] bg-white rounded-sm lg:pt-10 items-center text-center shadow-2xl">
-          <h2 class="text-[#15803D] lg:text-[32px] font-semibold">120+</h2>
-          <p class="pt-1">Communities Involved</p>
-        </div>
-        <div class=" lg:h-[156px] lg:w-[400px] bg-white rounded-sm lg:pt-10 items-center text-center shadow-2xl">
-          <h2 class="text-[#15803D] lg:text-[32px] font-semibold">30+</h2>
-          <p class="pt-1">Countries Reached</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    function populateCartModal() {
+      const list = document.getElementById('cart-items-list');
+      list.innerHTML = '';
+      const ids = Object.keys(cart);
+      if (!ids.length) {
+        list.innerHTML = '<div class="text-slate-600">Your cart is empty</div>';
+      } else {
+        ids.forEach(id => {
+          const it = cart[id];
+          const itemEl = document.createElement('div');
+          itemEl.className = 'flex items-center justify-between gap-3';
+          itemEl.innerHTML = `
+            <div>
+              <div class="font-semibold">${it.title}</div>
+              <div class="text-xs text-slate-500">${it.category} • ${it.qty} x ${(it.priceUSD).toFixed(2)}$</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="decrease px-2 py-1 rounded-md border" data-id="${id}">-</button>
+              <div class="w-6 text-center">${it.qty}</div>
+              <button class="increase px-2 py-1 rounded-md border" data-id="${id}">+</button>
+              <button class="remove text-sm px-2 py-1 ml-2 rounded-md border" data-id="${id}">Remove</button>
+            </div>
+          `;
+          list.appendChild(itemEl);
+        });
 
-  <!-- Plant a Tree Today section  -->
-  <section class="bg-[#166534] lg:h-[590px]">
+        // attach handlers
+        Array.from(document.querySelectorAll('.increase')).forEach(b => {
+          b.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            cart[id].qty++;
+            saveCart();
+            populateCartModal();
+            updateCartTotal();
+          });
+        });
+        Array.from(document.querySelectorAll('.decrease')).forEach(b => {
+          b.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            cart[id].qty = Math.max(0, cart[id].qty - 1);
+            if (cart[id].qty === 0) delete cart[id];
+            saveCart();
+            populateCartModal();
+            updateCartTotal();
+          });
+        });
+        Array.from(document.querySelectorAll('.remove')).forEach(b => {
+          b.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            delete cart[id];
+            saveCart();
+            populateCartModal();
+            updateCartTotal();
+          });
+        });
+      }
+      updateCartTotal();
+    }
 
-    <div class="lg:pt-30 lg:px-100 ">
-      <h1 class="text-center text-white text-[32px] font-bold lg:mb-5">Plant a Tree Today</h1>
-      <div class=" space-y-4 bg-[#15803D] lg:w-[650px] lg:h-[311px] p-9 rounded-2xl">
-        <form class="">
-          <input class="lg:w-[570px] lg:h-[48px] bg-white rounded-sm p-3" placeholder="Your name" type="text"> <br> <br>
-          <input class="lg:w-[570px] h-[48px] bg-white rounded-sm p-3" placeholder="Your Email Address" type="email"
-            name="" id=""> <br> <br>
+    function updateCartTotal() {
+      const total = Object.values(cart).reduce((s, it) => s + (it.priceUSD * it.qty), 0);
+      document.getElementById('cart-total').textContent = formatPriceUSD(total);
+    }
 
-          <select class="select lg:w-[570px] lg:h-[48px]">
-            <option disabled selected>Number of Trees</option>
-            <option>1 Tree-$5</option>
-            <option>5 Tree-$25</option>
-            <option>10 Tree-$50</option>
-          </select>
-        </form>
-        <button class="lg:w-[570px] h-[42px] rounded-[10px] bg-amber-400 text-[#15803D]">Donate Now</button>
-      </div>
-    </div>
+    function clearCart() {
+      cart = {};
+      saveCart();
+      populateCartModal();
+      showToast('Cart cleared');
+    }
 
+    /***********************
+     * Filters / search
+     ***********************/
+    const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
+    let activeCategory = 'all';
 
-  </section>
+    categoryButtons.forEach(b => {
+      b.addEventListener('click', (e) => {
+        activeCategory = e.currentTarget.dataset.cat;
+        categoryButtons.forEach(x => x.classList.remove('bg-[rgba(21,128,61,0.08)', 'font-semibold'));
+        e.currentTarget.classList.add('bg-[rgba(21,128,61,0.06]');
+        applyFilters();
+      });
+    });
 
-  <!-- All Rights Reserved section  -->
-  <section class="h-[72px] bg-[#14532D] text-center lg:pt-5 text-white">
-    <p>© 2025 Green Earth. All Rights Reserved.</p>
-  </section>
+    document.getElementById('only-available').addEventListener('change', applyFilters);
+    document.getElementById('search').addEventListener('input', applyFilters);
 
+    function applyFilters() {
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const onlyAvailable = document.getElementById('only-available').checked;
+      let results = PRODUCTS.filter(p => {
+        if (activeCategory !== 'all' && p.category !== activeCategory) return false;
+        if (onlyAvailable && !p.available) return false;
+        if (q && !(p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))) return false;
+        return true;
+      });
+      renderProducts(results);
+    }
 
+    /***********************
+     * Small utilities
+     ***********************/
+    function showToast(msg) {
+      // very small transient message
+      const t = document.createElement('div');
+      t.className = 'fixed right-4 bottom-6 bg-[var(--brand-green)] text-white px-4 py-2 rounded-md shadow-lg z-60';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(() => t.classList.add('opacity-0'), 2000);
+      setTimeout(() => t.remove(), 2600);
+    }
 
-  <script src="./script/script.js"></script>
+    /***********************
+     * Donation form (demo)
+     ***********************/
+    document.getElementById('donate-form').addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const name = document.getElementById('donor-name').value.trim();
+      const email = document.getElementById('donor-email').value.trim();
+      const qty = document.getElementById('donation-qty').value;
+      if (!name || !email) {
+        alert('Please enter name and email');
+        return;
+      }
+      showToast(`Thanks ${name}! ${qty} tree(s) reserved — demo only`);
+      document.getElementById('donor-name').value = '';
+      document.getElementById('donor-email').value = '';
+    });
+
+    /***********************
+     * Initialize on load
+     ***********************/
+    function init() {
+      renderProducts(PRODUCTS);
+      renderCartPreview();
+      updateCartCount();
+
+      // attach cart open/close
+      document.getElementById('open-cart').addEventListener('click', openCartModal);
+      document.getElementById('close-cart').addEventListener('click', closeCartModal);
+      document.getElementById('modal-clear').addEventListener('click', clearCart);
+      document.getElementById('clear-cart').addEventListener('click', clearCart);
+      document.getElementById('checkout-btn').addEventListener('click', () => {
+        alert('Demo checkout — integrate payment gateway for production.');
+      });
+      document.getElementById('modal-checkout').addEventListener('click', () => {
+        alert('Demo checkout — integrate payment gateway for production.');
+      });
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      // scroll to products button
+      document.getElementById('scroll-products').addEventListener('click', () => {
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // donate CTA scroll
+      document.getElementById('cta-plant').addEventListener('click', () => {
+        document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // if localStorage cart exists, populate modal when opening
+      document.getElementById('open-cart').addEventListener('click', populateCartModal);
+
+      // checkout mock
+      document.getElementById('checkout-btn').addEventListener('click', () => {
+        if (getCartItemCount() === 0) {
+          alert('Your cart is empty');
+          return;
+        }
+        alert('Demo: proceed to checkout (integrate real payment gateway).');
+      });
+
+      // prepare initial category selected visual
+      document.querySelector('.category-btn[data-cat="all"]').classList.add('bg-[rgba(21,128,61,0.06)]');
+
+      // small escape key to close cart
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeCartModal();
+      });
+    }
+
+    // run
+    init();
+  </script>
+
 </body>
-
 </html>

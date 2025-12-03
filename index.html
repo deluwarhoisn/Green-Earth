@@ -160,17 +160,17 @@
       <!-- IMPACT / DONATE -->
       <aside class="lg:col-span-1 bg-white rounded-xl p-6 shadow h-fit">
         <h3 class="font-bold text-lg">Our Impact</h3>
-        <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+        <div class="mt-4 grid grid-cols-3 gap-2 text-center -m-3">
           <div>
-            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">500K+</div>
+            <div class="text-[20px] font-extrabold text-[var(--brand-green)]">500K+</div>
             <div class="text-xs text-slate-600">Trees Planted</div>
           </div>
           <div>
-            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">120+</div>
+            <div class="text-[20px] font-extrabold text-[var(--brand-green)]">120+</div>
             <div class="text-xs text-slate-600">Communities</div>
           </div>
           <div>
-            <div class="text-[26px] font-extrabold text-[var(--brand-green)]">30+</div>
+            <div class="text-[20px] font-extrabold text-[var(--brand-green)]">30+</div>
             <div class="text-xs text-slate-600">Countries</div>
           </div>
         </div>
@@ -210,15 +210,51 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[var(--brand-green)] text-white py-6 mt-8">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>© 2025 Green Earth. All Rights Reserved.</div>
-      <div class="text-sm text-white/80">Built with care 🌱</div>
+ <div class="min-h-screen flex items-center justify-center bg-[#0C6B3F] px-4">
+  <div class="w-full max-w-xl text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-8">
+      Plant a Tree Today
+    </h1>
+
+    <div class="bg-[#0B5E36] p-8 rounded-xl shadow-lg">
+      <!-- Name Input -->
+      <input
+        type="text"
+        placeholder="Your Name"
+        class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none"
+      />
+
+      <!-- Email Input -->
+      <input
+        type="email"
+        placeholder="Your Email Address"
+        class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none"
+      />
+
+      <!-- Number of Trees -->
+      <select
+        class="w-full mb-6 px-4 py-3 rounded-md bg-white outline-none"
+      >
+        <option value="">Number of Trees</option>
+        <option value="1">1 Tree</option>
+        <option value="2">2 Trees</option>
+        <option value="5">5 Trees</option>
+        <option value="10">10 Trees</option>
+      </select>
+
+      <!-- Button -->
+      <button
+        class="w-full bg-[#F5C518] text-[#0C3B2E] font-semibold py-3 rounded-full"
+      >
+        Donate Now
+      </button>
     </div>
-  </footer>
+  </div>
+</div>
+
 
   <!-- CART DRAWER (hidden on small screens but we show as modal for demo) -->
-  <div id="cart-modal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/40 p-4">
+  <div id="cart-modal" class=" fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-black/40 p-4">
     <div class="bg-white rounded-xl shadow-lg w-full max-w-xl">
       <div class="flex items-center justify-between p-4 border-b">
         <h4 class="font-bold">Your Cart</h4>

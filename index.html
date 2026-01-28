@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,7 +9,7 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
- 
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -19,14 +20,36 @@
       --brand-yellow: #FACC15;
       --muted: #6B7280;
     }
-    html,body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+    html,
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
     /* small visual helpers */
-    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
-    .card-img { background: linear-gradient(180deg, #f3f7f4 0%, #e8f4ea 100%); display:flex; align-items:center; justify-content:center; }
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .card-img {
+      background: linear-gradient(180deg, #f3f7f4 0%, #e8f4ea 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* badge pill */
-    .pill { display:inline-block; padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; font-size:0.78rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
   </style>
 </head>
+
 <body class="bg-[#F0FDF4] text-slate-800">
 
   <!-- NAVBAR -->
@@ -49,19 +72,20 @@
 
       <div class="flex items-center gap-3">
         <button id="open-cart" aria-controls="cart-drawer" aria-expanded="false"
-                class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold bg-white text-[var(--brand-green)] shadow-sm">
+          class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold bg-white text-[var(--brand-green)] shadow-sm">
           🛒 <span id="cart-count">0</span>
         </button>
 
-        <button id="cta-plant" class="px-4 py-2 rounded-full font-bold bg-[var(--brand-yellow)] text-[var(--brand-green)]">
+        <button id="cta-plant"
+          class="px-4 py-2 rounded-full font-bold bg-[var(--brand-yellow)] text-[var(--brand-green)]">
           Plant a Tree
         </button>
 
         <!-- mobile menu button -->
         <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md bg-white/20">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-               xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-               d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
         </button>
       </div>
     </div>
@@ -78,32 +102,30 @@
   </header>
 
   <!-- HERO -->
- <!-- Banner Section -->
-<section class="w-full bg-[#D8F3E0] py-16 relative overflow-hidden">
+  <!-- Banner Section -->
+  <section class="w-full bg-[#D8F3E0] py-16 relative overflow-hidden">
 
-  <!-- Left Leaf -->
-  <img src="/assets/hero-leaf1.png" 
-       class="hidden lg:block absolute left-0 top-0 h-full object-contain" alt="leaf">
+    <!-- Left Leaf -->
+    <img src="/assets/hero-leaf1.png" class="hidden lg:block absolute left-0 top-0 h-full object-contain" alt="leaf">
 
-  <!-- Right Leaf -->
-  <img src="/assets/hero-leaf2.png" 
-       class="hidden lg:block absolute right-0 top-0 h-full object-contain" alt="leaf">
+    <!-- Right Leaf -->
+    <img src="/assets/hero-leaf2.png" class="hidden lg:block absolute right-0 top-0 h-full object-contain" alt="leaf">
 
-  <div class="relative z-10 text-center max-w-3xl mx-auto px-4">
-    <h1 class="text-3xl lg:text-5xl font-extrabold text-[#0F172A]">
-      Plant a Tree, Grow a Future
-    </h1>
+    <div class="relative z-10 text-center max-w-3xl mx-auto px-4">
+      <h1 class="text-3xl lg:text-5xl font-extrabold text-[#0F172A]">
+        Plant a Tree, Grow a Future
+      </h1>
 
-    <p class="mt-4 text-gray-700 text-lg">
-      Join our mission to plant 1 million trees and make the Earth greener for future generations.
-    </p>
+      <p class="mt-4 text-gray-700 text-lg">
+        Join our mission to plant 1 million trees and make the Earth greener for future generations.
+      </p>
 
-    <button class="mt-6 px-8 py-3 bg-[#FACC15] text-[#166534] 
+      <button class="mt-6 px-8 py-3 bg-[#FACC15] text-[#166534] 
                    font-semibold rounded-full hover:bg-yellow-400 duration-200">
-      Get Involved
-    </button>
-  </div>
-</section>
+        Get Involved
+      </button>
+    </div>
+  </section>
 
 
   <!-- MAIN: Products + Sidebar -->
@@ -114,12 +136,18 @@
       <aside class="lg:col-span-1 bg-white rounded-xl p-4 shadow sticky top-6 h-fit">
         <h3 class="font-bold text-lg">Categories</h3>
         <div class="mt-3 grid gap-2">
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100 active:bg-slate-200" data-cat="all">All Trees</button>
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Fruit">Fruit Trees</button>
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Flowering">Flowering Trees</button>
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Shade">Shade Trees</button>
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Medicinal">Medicinal Trees</button>
-          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Bamboo">Bamboo</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100 active:bg-slate-200"
+            data-cat="all">All Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Fruit">Fruit
+            Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Flowering">Flowering
+            Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Shade">Shade
+            Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100" data-cat="Medicinal">Medicinal
+            Trees</button>
+          <button class="category-btn text-left px-3 py-2 rounded-md hover:bg-slate-100"
+            data-cat="Bamboo">Bamboo</button>
         </div>
 
         <div class="mt-4">
@@ -136,7 +164,8 @@
             <p class="text-slate-500">No items yet</p>
           </div>
           <div class="mt-3 flex gap-2">
-            <button id="checkout-btn" class="flex-1 px-3 py-2 rounded-md bg-[var(--brand-green)] text-white font-semibold">Checkout</button>
+            <button id="checkout-btn"
+              class="flex-1 px-3 py-2 rounded-md bg-[var(--brand-green)] text-white font-semibold">Checkout</button>
             <button id="clear-cart" class="px-3 py-2 rounded-md border">Clear</button>
           </div>
         </div>
@@ -186,7 +215,9 @@
               <option value="5">5 Trees — $25</option>
               <option value="10">10 Trees — $50</option>
             </select>
-            <button class="w-full px-3 py-2 rounded-md bg-[var(--brand-yellow)] text-[var(--brand-green)] font-semibold">Donate Now</button>
+            <button
+              class="w-full px-3 py-2 rounded-md bg-[var(--brand-yellow)] text-[var(--brand-green)] font-semibold">Donate
+              Now</button>
           </form>
         </div>
       </aside>
@@ -196,10 +227,13 @@
   <!-- ABOUT / CAMPAIGN -->
   <section id="campaign" class="container mx-auto px-4 py-12">
     <div class="bg-white rounded-xl p-6 shadow grid grid-cols-1 lg:grid-cols-2 gap-6 items-center ">
-      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=60&auto=format&fit=crop" alt="about" class="w-full h-72 object-cover rounded-md" />
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=60&auto=format&fit=crop"
+        alt="about" class="w-full h-72 object-cover rounded-md" />
       <div>
         <h3 class="text-2xl font-bold" id="about">About the Campaign</h3>
-        <p class="mt-3 text-slate-700">By joining our initiative, you contribute to forest restoration, wildlife protection, and community development in rural areas. We protect biodiversity, reduce pollution, and support livelihoods.</p>
+        <p class="mt-3 text-slate-700">By joining our initiative, you contribute to forest restoration, wildlife
+          protection, and community development in rural areas. We protect biodiversity, reduce pollution, and support
+          livelihoods.</p>
         <ul class="mt-3 list-disc pl-5 text-slate-600">
           <li>Restore natural habitats and biodiversity</li>
           <li>Reduce air pollution and improve health</li>
@@ -210,47 +244,36 @@
   </section>
 
   <!-- FOOTER -->
- <div class="pt-5 m-5 flex items-center justify-center bg-[#0C6B3F] px-4">
-  <div class="w-full max-w-xl text-center">
-    <h1 class="text-3xl md:text-4xl font-bold text-white mb-8">
-      Plant a Tree Today
-    </h1>
+  <div class="pt-5 m-5 flex items-center justify-center bg-[#0C6B3F] px-4">
+    <div class="w-full max-w-xl text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-8">
+        Plant a Tree Today
+      </h1>
 
-    <div class="bg-[#0B5E36] p-8 rounded-xl shadow-lg">
-      <!-- Name Input -->
-      <input
-        type="text"
-        placeholder="Your Name"
-        class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none"
-      />
+      <div class="bg-[#0B5E36] p-8 rounded-xl shadow-lg">
+        <!-- Name Input -->
+        <input type="text" placeholder="Your Name" class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none" />
 
-      <!-- Email Input -->
-      <input
-        type="email"
-        placeholder="Your Email Address"
-        class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none"
-      />
+        <!-- Email Input -->
+        <input type="email" placeholder="Your Email Address"
+          class="w-full mb-4 px-4 py-3 rounded-md bg-white outline-none" />
 
-      <!-- Number of Trees -->
-      <select
-        class="w-full mb-6 px-4 py-3 rounded-md bg-white outline-none"
-      >
-        <option value="">Number of Trees</option>
-        <option value="1">1 Tree</option>
-        <option value="2">2 Trees</option>
-        <option value="5">5 Trees</option>
-        <option value="10">11 Trees</option>
-      </select>
+        <!-- Number of Trees -->
+        <select class="w-full mb-6 px-4 py-3 rounded-md bg-white outline-none">
+          <option value="">Number of Trees</option>
+          <option value="1">1 Tree</option>
+          <option value="2">2 Trees</option>
+          <option value="5">5 Trees</option>
+          <option value="10">11 Trees</option>
+        </select>
 
-      <!-- Button -->
-      <button
-        class="w-full bg-[#F5C518] text-[#0C3B2E] font-semibold py-3 rounded-full"
-      >
-        Donate Now
-      </button>
+        <!-- Button -->
+        <button class="w-full bg-[#F5C518] text-[#0C3B2E] font-semibold py-3 rounded-full">
+          Donate Now
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
 
   <!-- CART DRAWER (hidden on small screens but we show as modal for demo) -->
@@ -267,7 +290,8 @@
           <div id="cart-total" class="text-lg font-bold text-[var(--brand-green)]">$0.00</div>
         </div>
         <div class="flex gap-2">
-          <button id="modal-checkout" class="flex-1 px-4 py-2 rounded-md bg-[var(--brand-green)] text-white">Checkout</button>
+          <button id="modal-checkout"
+            class="flex-1 px-4 py-2 rounded-md bg-[var(--brand-green)] text-white">Checkout</button>
           <button id="modal-clear" class="px-4 py-2 rounded-md border">Clear</button>
         </div>
       </div>
@@ -280,7 +304,7 @@
 
 
   <script>
-   
+
     const PRODUCTS = [
       { id: 'mango-1', title: 'Mango Tree', price: 500, priceUSD: 5, category: 'Fruit', desc: 'Sweet mango tree — shade and fruit.', img: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800&q=60&auto=format&fit=crop', available: true },
       { id: 'jack-1', title: 'Jackfruit Tree', price: 700, priceUSD: 7, category: 'Fruit', desc: 'Large, nourishing fruit.', img: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&q=60&auto=format&fit=crop', available: true },
@@ -290,7 +314,7 @@
       { id: 'neem-1', title: 'Neem Tree', price: 400, priceUSD: 4, category: 'Medicinal', desc: 'Medicinal and hardy.', img: 'https://images.unsplash.com/photo-1524594154901-2c1da8ae3b8c?w=900&q=60&auto=format&fit=crop', available: true }
     ];
 
-   
+
     const CART_KEY = 'green-earth-cart-v1';
     let cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
 
@@ -311,7 +335,7 @@
       if (openCartBtn) openCartBtn.setAttribute('aria-label', `Open cart with ${getCartItemCount()} items`);
     }
 
- 
+
     const productsGrid = document.getElementById('products-grid');
 
     function formatPriceUSD(n) {
@@ -351,7 +375,7 @@
         `;
         productsGrid.appendChild(card);
       });
-    
+
       Array.from(document.querySelectorAll('.add-to-cart')).forEach(btn => {
         btn.addEventListener('click', (e) => {
           const id = e.currentTarget.dataset.id;
@@ -381,7 +405,7 @@
         preview.innerHTML = '<p class="text-slate-500">No items yet</p>';
         return;
       }
-      ids.slice(0,3).forEach(id => {
+      ids.slice(0, 3).forEach(id => {
         const it = cart[id];
         const row = document.createElement('div');
         row.className = 'flex items-center justify-between gap-2';
@@ -433,7 +457,7 @@
           list.appendChild(itemEl);
         });
 
-       
+
         Array.from(document.querySelectorAll('.increase')).forEach(b => {
           b.addEventListener('click', (e) => {
             const id = e.currentTarget.dataset.id;
@@ -478,7 +502,7 @@
       showToast('Cart cleared');
     }
 
-  
+
     const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
     let activeCategory = 'all';
 
@@ -506,7 +530,7 @@
       renderProducts(results);
     }
 
-    
+
     function showToast(msg) {
       // very small transient message
       const t = document.createElement('div');
@@ -531,7 +555,7 @@
       document.getElementById('donor-email').value = '';
     });
 
-   
+
     function init() {
       renderProducts(PRODUCTS);
       renderCartPreview();
@@ -588,4 +612,5 @@
   </script>
 
 </body>
+
 </html>
